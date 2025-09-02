@@ -17,18 +17,18 @@
 """ Ignorera denna rad
 
 import bpy
-from bpy.utils import register_class
+
 
 class LEARN_BPY_OT_hello_world(bpy.types.Operator):
     bl_idname = "wm.hello_world"
     bl_label = "Hello World Operator"
     
     def execute(self, context):
-        print("Hello, World!")
+        self.report({"INFO"}, "Hello, World!")
         return {"FINISHED"}
 
 
-register_class(LEARN_BPY_OT_hello_world)
+bpy.utils.register_class(LEARN_BPY_OT_hello_world)
 
 def menu_func(self, context):
     self.layout.operator("wm.hello_world")
@@ -36,6 +36,8 @@ def menu_func(self, context):
 bpy.types.VIEW3D_MT_view.append(menu_func)
 
 Ignorera denna rad """
+
+# ——————————————————————————————————————————————————————————————————————
 
 # LÄGG TILL KODEN NEDANFÖR
 # vvvvvvvvvvvvvvvvvvv
@@ -45,9 +47,29 @@ Ignorera denna rad """
 # ^^^^^^^^^^^^^^^^^^^^
 # LÄGG TILL KODEN OVANFÖR
 
-# Kom ihåg att vi måste registrera operatorn för att den ska fungera ihop med Blender.
-
-# I detta exemplet placerar vi operatorn i slutet på View-menyn,
-# den kan också hittas med hjälp av Blenders sökfunktion (F3).
+# ——————————————————————————————————————————————————————————————————————
 
 # 3D Viewport ▶ View ▶ Hello World Operator
+
+# I detta exempel placerar vi operatorn i slutet på View-menyn,
+# men den kan också hittas med hjälp av Blenders sökfunktion (F3).
+
+# Inuti execute-metoden körs den huvudsakliga koden av operatorn.
+
+# Dess 'bl_idname' består av en kategori och operatorns namn.
+# Några vanliga kategorier inkluderar wm, object, mesh och view3d.
+# wm = Window Manager
+
+# Namnkonvention
+# Här används namnkonventionen UPPER_CASE_OT_lower_case åt klassens namn 
+# med OT som förkortning på Operator Type.
+
+# Registrering
+# I Blender måste vi registrera klasser som definierar operators, paneler, 
+# menyer eller property groups.
+# Andra klasser, som bara innehåller hjälpfunktioner exempelvis, ska inte registreras.
+# Tumregeln kan man säga är "Kommer klassen synas eller gå att interagera med? Registrera."
+
+
+# Referenser
+# https://docs.blender.org/api/current/bpy.types.Operator.html

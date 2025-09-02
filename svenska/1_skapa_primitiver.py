@@ -3,7 +3,7 @@
 # ——————————————————————————————————————————————————————————————————————
 
 # Blender styrs till stor del av operators - små programdelar som utför specifika handlingar.
-# När du utför en handling i Blender, t.ex. lägga till en kub, används bakom kulisserna en
+# När du utför en handling i Blender, t.ex. lägger till en kub, används bakom kulisserna en
 # "skapa-kub-operator".
 
 # Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
@@ -22,6 +22,8 @@ bpy.ops.object.light_add(type='SUN', location=(0, -3, 0), rotation=(0.52, 0, 0.3
 
 Ignorera denna rad """
 
+# ——————————————————————————————————————————————————————————————————————
+
 # LÄGG TILL KODEN NEDANFÖR
 # vvvvvvvvvvvvvvvvvvv
 
@@ -29,5 +31,7 @@ Ignorera denna rad """
 
 # ^^^^^^^^^^^^^^^^^^^^
 # LÄGG TILL KODEN OVANFÖR
+
+# ——————————————————————————————————————————————————————————————————————
 
 # Notera att dessa kommandon börjar med 'bpy.ops' vilket säger oss att de är operators.
