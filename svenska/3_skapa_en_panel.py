@@ -6,13 +6,18 @@
 
 # En panels plats i användargränssnittet bestäms av följande attribut
 
-# bl_space_type - typiskt sätt detsamma som editor-typen
+# bl_space_type  - typiskt sätt detsamma som editor-typen
 # bl_region_type - ytan som panelen placeras på inom editorn
-# bl_category - kategorin panelen hör hemma i - om applicerbart (valfri text)
-# bl_label - namnet på panelen (valfri text)
+# bl_category    - kategorin panelen hör hemma i - om applicerbart (valfri text)
+# bl_label       - namnet på panelen (valfri text)
+
+# Se tredje och fjärde referensen nedan för att veta vilka möjliga värden som
+# finns för bl_space_type samt bl_region_type.
 
 # Klasser som skapar egna användargränssnitt behöver alltid sin egna draw-metod.
-# Inuti denna beskrivs alla dess UI-element som till exempel rader, kolumner, knappar osv.
+# Inuti denna beskrivs alla dess UI-element som till exempel rader, kolumner,
+# knappar osv.
+
 
 # Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
 
@@ -82,10 +87,6 @@ Ignorera denna rad """
 Ignorera denna rad """
 
 # Fler funktioner går att hitta i referensen för UILayout.
-
-# Namnkonvention
-# UPPER_CASE_PT_lower_case 
-# PT - Panel Type
 
 # Registrering
 # Kom ihåg att paneler måste registreras.

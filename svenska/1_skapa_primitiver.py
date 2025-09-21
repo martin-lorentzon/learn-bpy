@@ -2,9 +2,10 @@
 # Aktivitet 1: Skapa primitiver
 # ——————————————————————————————————————————————————————————————————————
 
-# Blender styrs till stor del av operators - små programdelar som utför specifika handlingar.
-# När du utför en handling i Blender, t.ex. lägger till en kub, används bakom kulisserna en
-# "skapa-kub-operator".
+# Blender styrs till stor del av operators - små programdelar som utför 
+# specifika handlingar.
+# När du utför en handling i Blender, t.ex. lägger till en kub används
+# bakom kulisserna en "skapa-kub-operator".
 
 # Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
 
@@ -17,8 +18,6 @@ bpy.ops.mesh.primitive_uv_sphere_add(radius=1, location=(0, 0, 2))
 bpy.ops.mesh.primitive_cone_add(radius1=1, depth=2, location=(-3, 0, 1))
 
 bpy.ops.mesh.primitive_monkey_add(size=2, location=(3, 0, 1))
-
-bpy.ops.object.light_add(type='SUN', location=(0, -3, 0), rotation=(0.52, 0, 0.35))
 
 Ignorera denna rad """
 
@@ -35,3 +34,7 @@ Ignorera denna rad """
 # ——————————————————————————————————————————————————————————————————————
 
 # Notera att dessa kommandon börjar med 'bpy.ops' vilket säger oss att de är operators.
+
+
+# Referenser
+# https://docs.blender.org/api/current/bpy.ops.html

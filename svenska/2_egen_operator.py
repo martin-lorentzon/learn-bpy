@@ -2,15 +2,17 @@
 # Aktivitet 2: Egen operator
 # ——————————————————————————————————————————————————————————————————————
 
-# "Operator" är Blenders ramverk för att skapa de handlingar användaren ska kunna utföra.
+# "Operator" är Blenders ramverk för att skapa de handlingar användaren
+# ska kunna utföra.
 
-# Operators kommer med en hel del praktiska förmågor som bidrar till ett bra UI/UX.
-# Några av dessa är
+# De kommer med en hel del praktiska förmågor som bidrar till ett bra UI/UX.
+# De kan bland annat
 
 # - Bli placerade i menyer som knappar
 # - Skapa nya interaktioner inuti 3D-vyporten
 # - Registreras i 'Undo'-kön
 # - Köras från hotkeys
+
 
 # Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
 
@@ -24,16 +26,16 @@ class LEARN_BPY_OT_hello_world(bpy.types.Operator):
     bl_label = "Hello World Operator"
     
     def execute(self, context):
-        self.report({"INFO"}, "Hello, World!")
+        print("Hello, World!")
         return {"FINISHED"}
 
 
-bpy.utils.register_class(LEARN_BPY_OT_hello_world)
+bpy.utils.register_class(LEARN_BPY_OT_hello_world)  # Registrerar operatorn
 
-def menu_func(self, context):
+def draw_func(self, context):
     self.layout.operator("wm.hello_world")
 
-bpy.types.VIEW3D_MT_view.append(menu_func)
+bpy.types.VIEW3D_MT_view.append(draw_func)
 
 Ignorera denna rad """
 
@@ -60,15 +62,24 @@ Ignorera denna rad """
 # Några vanliga kategorier inkluderar wm, object, mesh och view3d.
 # wm = Window Manager
 
-# Namnkonvention
-# Här används namnkonventionen UPPER_CASE_OT_lower_case åt klassens namn 
-# med OT som förkortning på Operator Type.
-
 # Registrering
 # I Blender måste vi registrera klasser som definierar operators, paneler, 
 # menyer eller property groups.
 # Andra klasser, som bara innehåller hjälpfunktioner exempelvis, ska inte registreras.
-# Tumregeln kan man säga är "Kommer klassen synas eller gå att interagera med? Registrera."
+# Tumregeln kan man säga är- Kommer klassen synas eller gå att interagera med? Registrera.
+
+# För att ta reda på vilka möjliga menyer som finns kan vi använda oss 
+# av denna hjälpfunktion
+
+import bpy
+
+def print_all_menu_names():
+    for name in dir(bpy.types):
+        cls = getattr(bpy.types, name)
+        if isinstance(cls, type) and issubclass(cls, bpy.types.Menu):
+            print(cls.__name__)
+
+print_all_menu_names()
 
 
 # Referenser

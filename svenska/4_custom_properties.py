@@ -7,30 +7,34 @@
 # De kan bestå av olika datatyper (t.ex. text, heltal, booleska värden osv.)
 # och används ofta för att ge metadata eller styra funktionalitet i scripts/add-ons.
 
+# I detta exempel kommer vi att skapa egna custom properties och
+# exponera de i Blenders användargränssnitt.
+
 # Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
 
 """ Ignorera denna rad
 
 # Utökar objekt-typen med en ny custom property
-bpy.types.Object.part_name = StringProperty(
+bpy.types.Object.part_name = bpy.props.StringProperty(
                              name="Part Name",
                              default="-Missing Part Name-"
                              )
-bpy.types.Object.lod_level = IntProperty(
+
+bpy.types.Object.lod_level = bpy.props.IntProperty(
                              name="Level of detail",
                              description="The quality of this part, lower=better",
                              min=0,
                              max=4,
                              default=0
                              )
-bpy.types.Object.has_issue = BoolProperty(name="Has Issue(s)", default=False)
+
+bpy.types.Object.has_issue = bpy.props.BoolProperty(name="Has Issue(s)", default=False)
 
 Ignorera denna rad """
 
 # ——————————————————————————————————————————————————————————————————————
 
 import bpy
-from bpy.props import StringProperty, IntProperty, BoolProperty
 
 
 class LEARN_BPY_PT_properties_panel(bpy.types.Panel):
@@ -81,13 +85,13 @@ bpy.utils.register_class(LEARN_BPY_PT_properties_panel)
 # Scenobjekt är inte ensamma i att kunna bli utvecklade på detta vis.
 # Även scener, material, collections, kameror, m.m. kan vi definiera properties på.
 
-# Fler användningsområden för properties inkluderar
+# Fler användningsområden för properties vore t.ex.
 
 # - Skapa parametrar för operators (se andra refensen)
 
-# - Preferenser (finns exempel i Text Editor ▶ Templates ▶ New Add-on)
+# - Add-on preferenser (finns exempel i Text Editor ▶ Templates ▶ New Add-on)
 
-# - Gruppering av egenskaper med Property Groups (se tredje referensen)
+# - Gruppering av properties med Property Groups (se tredje referensen)
 
 
 # Referenser
