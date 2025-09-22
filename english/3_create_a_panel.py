@@ -1,27 +1,27 @@
 # ——————————————————————————————————————————————————————————————————————
-# Aktivitet 3: Skapa en panel
+# Activity 3: Create a panel
 # ——————————————————————————————————————————————————————————————————————
 
-# Paneler används ofta för att visa och gruppera UI-element som hör samman.
+# Panels are often used to display and group UI elements.
 
-# En panels plats i användargränssnittet bestäms av följande attribut
+# A panel's location in the user interface is determined by the following attributes
 
-# bl_space_type  - typiskt sätt detsamma som editor-typen
-# bl_region_type - ytan som panelen placeras på inom editorn
-# bl_category    - kategorin panelen hör hemma i - om applicerbart (valfri text)
-# bl_label       - namnet på panelen (valfri text)
+# bl_space_type  - typically the same as the editor type
+# bl_region_type - the area where the panel is placed within the editor
+# bl_category    - the category the panel belongs to - if applicable (optional text)
+# bl_label       - the name of the panel (optional text)
 
-# Se tredje och fjärde referensen nedan för att veta vilka möjliga värden som
-# finns för bl_space_type samt bl_region_type.
+# See the third and fourth references below to know what possible values
+# exist for bl_space_type and bl_region_type.
 
-# Klasser som skapar egna användargränssnitt behöver alltid sin egna draw-metod.
-# Inuti denna beskrivs alla dess UI-element som till exempel rader, kolumner,
-# knappar osv.
+# Classes that create custom user interfaces always need their own draw method.
+# The draw method describes all its UI elements, such as rows, columns,
+# buttons, etc.
 
 
-# Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
+# Add the following code in the code block below, then press Run Script (play button at the top ▲)
 
-""" Ignorera denna rad
+""" Ignore this line
 
 import bpy
 
@@ -40,59 +40,59 @@ class LEARN_BPY_PT_hello_world(bpy.types.Panel):
 
 bpy.utils.register_class(LEARN_BPY_PT_hello_world)
 
-Ignorera denna rad """
+Ignore this line """
 
 # ——————————————————————————————————————————————————————————————————————
 
-# LÄGG TILL KODEN NEDANFÖR
+# ADD THE CODE BELOW
 # vvvvvvvvvvvvvvvvvvvv
 
 
 
 # ^^^^^^^^^^^^^^^^^^^^
-# LÄGG TILL KODEN OVANFÖR
+# ADD THE CODE ABOVE
 
 # ——————————————————————————————————————————————————————————————————————
 
-# Denna kod placerar panelen i 3D-vyportens sidopanel
+# This code places the panel in the 3D viewport's side panel
 # 3D Viewport ▶ N-panel ▶ Learn-bpy ▶ Hello World
 
-# Experimentera med att lägga till fler UI-element i panelens draw-metod.
+# Experiment with adding more UI elements in the panel's draw method.
 
-# Några exempel
+# Some examples
 
-""" Ignorera denna rad
+""" Ignore this line
 
-        # Exempel på operator-knapp
+        # Example of operator button
         op = layout.operator("mesh.primitive_cube_add", icon="MESH_CUBE")
         op.scale = (1, 1, 1)
         
-        # Exempel på property
+        # Example of property
         if context.object is not None:
             layout.prop(context.object, "location")
         
-        # Exempel på flera kolumner
+        # Example of multiple columns
         row = layout.row()
         col1 = row.column()
         col2 = row.column()
         col1.label(text="Column 1")
         col2.label(text="Column 2")
         
-        # Exempel på subpanel
+        # Example of subpanel
         header, panel = layout.panel("my_panel_id", default_closed=False)
         header.label(text="Hello World")
         if panel:
             panel.label(text="Success")
 
-Ignorera denna rad """
+Ignore this line """
 
-# Fler funktioner går att hitta i referensen för UILayout.
+# More functions can be found in the reference for UILayout.
 
-# Registrering
-# Kom ihåg att paneler måste registreras.
+# Registration
+# Remember that panels must be registered.
 
 
-# Referenser
+# References
 # https://docs.blender.org/api/current/bpy.types.Panel.html
 # https://docs.blender.org/api/current/bpy.types.UILayout.html
 # https://docs.blender.org/api/current/bpy_types_enum_items/space_type_items.html

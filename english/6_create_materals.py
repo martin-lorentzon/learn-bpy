@@ -1,23 +1,23 @@
 # ——————————————————————————————————————————————————————————————————————
-# Aktivitet 6: Skapa material
+# Activity 6: Create materials
 # ——————————————————————————————————————————————————————————————————————
 
-# Material i Blender definieras med hjälp av nodträd.
-# Ett material kan innehålla olika typer av noder. Varje nod har sina
-# egna inputs och outputs. Noder kopplas samman genom att skapa en länk
-# från en nods output till en annan nods input.
+# Materials in Blender are defined using node trees.
+# A material can contain different types of nodes. Each node has its own
+# inputs and outputs. Nodes are connected by creating a link
+# from one node's output to another node's input.
 
-# I detta exempel ska vi:
+# In this example we will:
 
-# - Skapa ett nytt material
-# - Hitta en specifik nod (Principled BSDF)
-# - Lägga till en ny Image Texture-nod
-# - Koppla ihop nya Image Texture-noden med materialets BSDF-nod
+# - Create a new material
+# - Find a specific node (Principled BSDF)
+# - Add a new Image Texture node
+# - Connect the new Image Texture node with the material's BSDF node
 
 
-# Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
+# Add the following code to the code block below, then press Run Script (play button at the top ▲)
 
-""" Ignorera denna rad
+""" Ignore this line
 
 import bpy
 
@@ -25,67 +25,67 @@ import bpy
 materials = bpy.data.materials
 my_material = materials.get("Test Material")
 
-# Tar bort materialet om det existerar sedan tidigare
+# Removes the material if it exists from before
 if my_material is not None:
     materials.remove(my_material)
 
-# Skapar ett nytt material
+# Creates a new material
 my_material = materials.new("Test Material")
 
-# De olika delarna av nodträdet
+# The different parts of the node tree
 my_material.use_nodes = True
 node_tree = my_material.node_tree
 nodes = node_tree.nodes
 links = node_tree.links
 
-# Exempel på att hitta en nod av en särskild typ
+# Example of finding a node of a specific type
 bsdf_node = None
 for node in nodes:
     if node.bl_idname == "ShaderNodeBsdfPrincipled":
         bsdf_node = node
         break
 
-# Skapar en ny Image Texture-nod
+# Creates a new Image Texture node
 image_node = nodes.new("ShaderNodeTexImage")
 image_node.location = (-500, 100)
 
-# Skapar en länk mellan Image Texture-noden och BSDF-noden
+# Creates a link between the Image Texture node and the BSDF node
 from_socket = image_node.outputs[0]
 to_socket = bsdf_node.inputs[0]
 links.new(from_socket, to_socket)
 
-Ignorera denna rad """
+Ignore this line """
 
 # ——————————————————————————————————————————————————————————————————————
 
-# LÄGG TILL KODEN NEDANFÖR
+# ADD THE CODE BELOW
 # vvvvvvvvvvvvvvvvvvvv
 
 
 
 # ^^^^^^^^^^^^^^^^^^^^
-# LÄGG TILL KODEN OVANFÖR
+# ADD THE CODE ABOVE
 
 # ——————————————————————————————————————————————————————————————————————
 
-# För att se resultatet navigerar du till shader-editorn
-# och väljer materialet 'Test Material'.
+# To see the result, navigate to the shader editor
+# and select the material 'Test Material'.
 
-# Denna kod skapar ett nytt material, hittar Principled BSDF-noden
-# och länkar den med en ny Image Texture-nod.
+# This code creates a new material, finds the Principled BSDF node
+# and links it with a new Image Texture node.
 
-# Om materialet redan finns tar koden bort materialet innan det
-# skapas på nytt, detta kan vara önskevärt om vi exempelvis
-# uppdaterar ett material ur ett materialbibliotek.
+# If the material already exists, the code removes the material before
+# creating a new one, this can be desirable if we for example
+# are updating a material from a material library.
 
-# För att hitta en nod av en specifik typ (t.ex. 'Mix Color')
-# så använder vi strikt dess bl_idname, klassens unika identifierare.
+# To find a node of a specific type (e.g. 'Mix Color')
+# we strictly use its bl_idname, the class's unique identifier.
 
-# Om du vill kan du experimentera med att lägga till - samt länka -
-# fler typer av noder.
+# If you want, you can experiment with adding - as well as linking -
+# more types of nodes.
 
-# För att ta reda på vilka möjliga nodtyper som finns kan vi använda
-# oss av denna hjälpfunktion
+# To find out what possible node types exist, we can use
+# this helper function
 
 import bpy
 
@@ -98,6 +98,6 @@ def print_all_node_names():
 print_all_node_names()
 
 
-# Referenser
+# References
 # https://docs.blender.org/api/current/bpy.types.Material.html
 # https://docs.blender.org/api/current/bpy.types.Node.html

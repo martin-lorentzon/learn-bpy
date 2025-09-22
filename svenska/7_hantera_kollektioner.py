@@ -1,5 +1,5 @@
 # ——————————————————————————————————————————————————————————————————————
-# Aktivitet 5: Hantera kollektioner
+# Aktivitet 7: Hantera kollektioner
 # ——————————————————————————————————————————————————————————————————————
 
 # Blenders kollektioner fungerar som grupper av objekt.
@@ -84,7 +84,7 @@ Ignorera denna rad """
 # ——————————————————————————————————————————————————————————————————————
 
 # LÄGG TILL KODEN NEDANFÖR
-# vvvvvvvvvvvvvvvvvvv
+# vvvvvvvvvvvvvvvvvvvv
 
 
 

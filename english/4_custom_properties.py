@@ -1,20 +1,20 @@
 # ——————————————————————————————————————————————————————————————————————
-# Aktivitet 4: Custom Properties
+# Activity 4: Custom Properties
 # ——————————————————————————————————————————————————————————————————————
 
-# Properties kan användas för att ge datablock nya egenskaper som lagras
-# och exponeras inom Blenders användargränssnitt.
-# De kan bestå av olika datatyper (t.ex. text, heltal, booleska värden osv.)
-# och används ofta för att ge metadata eller styra funktionalitet i scripts/add-ons.
+# Properties can be used to give data blocks new properties that are stored
+# and exposed within Blender's user interface.
+# They can consist of different data types (e.g. text, integers, boolean values etc.)
+# and are often used to provide metadata or control functionality in scripts/add-ons.
 
-# I detta exempel kommer vi att skapa egna custom properties och
-# exponera de i Blenders användargränssnitt.
+# In this example we will create our own custom properties and
+# expose them in Blender's user interface.
 
-# Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
+# Add the following code to the code block below, then press Run Script (play button at the top ▲)
 
-""" Ignorera denna rad
+""" Ignore this line
 
-# Utökar objekt-typen med en ny custom property
+# Extends the object type with a new custom property
 bpy.types.Object.part_name = bpy.props.StringProperty(
                              name="Part Name",
                              default="-Missing Part Name-"
@@ -30,7 +30,7 @@ bpy.types.Object.lod_level = bpy.props.IntProperty(
 
 bpy.types.Object.has_issue = bpy.props.BoolProperty(name="Has Issue(s)", default=False)
 
-Ignorera denna rad """
+Ignore this line """
 
 # ——————————————————————————————————————————————————————————————————————
 
@@ -43,7 +43,7 @@ class LEARN_BPY_PT_properties_panel(bpy.types.Panel):
     bl_region_type = "UI"
     bl_category = "Learn-bpy"
     
-    # Poll-metoden bestämmer när panelen ska synas
+    # The poll method determines when the panel should be visible
     @classmethod
     def poll(cls, context):
         result = context.active_object is not None
@@ -64,37 +64,37 @@ class LEARN_BPY_PT_properties_panel(bpy.types.Panel):
         
 
 # —————————————————— #
-#    Registrering    #
+#    Registration    #
 # —————————————————— #
 
-# LÄGG TILL KODEN NEDANFÖR
+# ADD THE CODE BELOW
 # vvvvvvvvvvvvvvvvvvvv
 
 
 
 # ^^^^^^^^^^^^^^^^^^^^
-# LÄGG TILL KODEN OVANFÖR
+# ADD THE CODE ABOVE
 
 bpy.utils.register_class(LEARN_BPY_PT_properties_panel)
 
 # ——————————————————————————————————————————————————————————————————————
 
-# Dessa properties visas nu i en egen panel
+# These properties are now displayed in their own panel
 # 3D Viewport ▶ N-panel ▶ Learn-bpy ▶ Custom Properties
 
-# Scenobjekt är inte ensamma i att kunna bli utvecklade på detta vis.
-# Även scener, material, collections, kameror, m.m. kan vi definiera properties på.
+# Scene objects are not alone in being able to be extended in this way.
+# We can also define properties on scenes, materials, collections, cameras, etc.
 
-# Fler användningsområden för properties vore t.ex.
+# More use cases for properties are
 
-# - Skapa parametrar för operators (se andra refensen)
+# - Creating parameters for operators (see second reference)
 
-# - Gruppering av properties med Property Groups (se tredje referensen)
+# - Grouping of properties with Property Groups (see third reference)
 
-# - Add-on preferenser (finns exempel i Text Editor ▶ Templates ▶ New Add-on)
+# - Add-on preferences (see example in Text Editor ▶ Templates ▶ New Add-on)
 
 
-# Referenser
+# References
 # https://docs.blender.org/api/current/bpy.props.html
 # https://docs.blender.org/api/current/bpy.props.html#operator-example
 # https://docs.blender.org/api/current/bpy.props.html#propertygroup-example

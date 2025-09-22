@@ -1,14 +1,14 @@
 # ——————————————————————————————————————————————————————————————————————
-# Aktivitet 1: Skapa primitiver
+# Activity 1: Create primitives
 # ——————————————————————————————————————————————————————————————————————
 
-# Blender styrs till stor del av operators - mindre programdelar som utför
-# en specifika handling.
-# När du lägger till en kub används bakom kulisserna en "skapa-kub-operator".
+# Blender is largely controlled by operators - small programs that perform 
+# a specific action.
+# When a new cube is added, Blender uses an "add-cube-operator" behind the scenes.
 
-# Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
+# Add the following code in the code block below, then press Run Script (play button at the top ▲)
 
-""" Ignorera denna rad
+""" Ignore this line
 
 import bpy
 
@@ -18,29 +18,29 @@ bpy.ops.mesh.primitive_cone_add(radius1=1, depth=2, location=(-3, 0, 1))
 
 bpy.ops.mesh.primitive_monkey_add(size=2, location=(3, 0, 1))
 
-Ignorera denna rad """
+Ignore this line """
 
 # ——————————————————————————————————————————————————————————————————————
 
-# LÄGG TILL KODEN NEDANFÖR
+# ADD CODE BELOW
 # vvvvvvvvvvvvvvvvvvvv
 
 
 
 # ^^^^^^^^^^^^^^^^^^^^
-# LÄGG TILL KODEN OVANFÖR
+# ADD CODE ABOVE
 
 # ——————————————————————————————————————————————————————————————————————
 
-# Notera att dessa kommandon börjar med 'bpy.ops' vilket säger oss att de är operators.
+# Note that these commands start with 'bpy.ops' which tells us that they are operators.
 
-# Likt funktioner i Python kan vi styra dess beteende med olika parametrar.
+# Similar to functions, operators allow us to use parameters to control its behaviour.
 
-# Att köra befintliga operators i skript är ett enkelt sätt att automatisera vanliga uppgifter.
-# Men ibland krävs det mer flexibilitet för att lösa mer komplexa problem.
-# För detta skulle vi kunna skapa och exponera våra egna operators i användargränssnittet.
+# Executing existent operators in script is a quick way to automate common tasks;
+# however, it may not offer us the flexibility to solve more complex problems.
+# For this we could create and expose our own custom operators in the UI.
 
 
-# Referenser
+# References
 # https://docs.blender.org/api/current/bpy.ops.html
 # https://docs.blender.org/api/current/bpy.context.html

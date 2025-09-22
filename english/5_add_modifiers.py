@@ -1,22 +1,22 @@
 # ——————————————————————————————————————————————————————————————————————
-# Aktivitet 5: Skapa Modifiers
+# Activity 5: Create Modifiers
 # ——————————————————————————————————————————————————————————————————————
 
-# Modifiers lagras på objekt och ändrar ett objekts utseende.
+# Modifiers are stored on objects and their appearances.
 
-# I nyare versioner av Blender är det vanligt att en modifier består av
-# noder, dvs. Geometry Nodes.
+# In newer versions of Blender, it's common for a modifier to consist of
+# nodes, i.e. Geometry Nodes.
 
-# Inför denna aktivit behöver du skapa en ny Geometry Nodes-grupp,
-# och redigera variabeln nedan för att matcha namnet du gav nodgruppen.
+# For this activity you will need to create a new Geometry Nodes group,
+# and edit the variable below to match the name you gave the node group.
 
 GEOMETRY_NODES_NAME = "Geometry Nodes"
 
-# Nu ska vi testa att lägga till modifiers på det aktiva objektet.
+# Now we will test adding modifiers to the active object.
 
-# Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
+# Add the following code to the code block below, then press Run Script (play button at the top ▲)
 
-""" Ignorera denna rad
+""" Ignore this line
 
 import bpy
 
@@ -27,39 +27,39 @@ if active_object is None:
     raise Exception("No active object, cancelled")
 
 
-active_object.modifiers.clear() # Tar bort alla modifiers
+active_object.modifiers.clear() # Removes all modifiers
 
-# Lägger till en ny Subdivision-modifier
+# Adds a new Subdivision modifier
 subsurf = active_object.modifiers.new(name="MySubdivision", type="SUBSURF")
 subsurf.levels = 2
 subsurf.render_levels = 3
 
-# Lägger till en ny Geometry Nodes-modifier
+# Adds a new Geometry Nodes modifier
 nodes_modifier = active_object.modifiers.new(name="MyGeometryNodes", type="NODES")
 nodes_modifier.node_group = bpy.data.node_groups[GEOMETRY_NODES_NAME]
 
-Ignorera denna rad """
+Ignore this line """
 
 # ——————————————————————————————————————————————————————————————————————
 
-# LÄGG TILL KODEN NEDANFÖR
+# ADD CODE BELOW
 # vvvvvvvvvvvvvvvvvvvv
 
 
 
 # ^^^^^^^^^^^^^^^^^^^^
-# LÄGG TILL KODEN OVANFÖR
+# ADD CODE ABOVE
 
 # ——————————————————————————————————————————————————————————————————————
 
-# Denna kod demonstrerar grundläggande hantering av modifiers i Blender.
-# Vi lär oss att rensa befintliga modifiers, lägga till nya (Subdivision och
-# Geometry Nodes), samt konfigurera deras inställningar programmatiskt.
+# This code demonstrates basic handling of modifiers in Blender.
+# We learn to clear existing modifiers, add new ones (Subdivision and
+# Geometry Nodes), and configure their settings programmatically.
 
-# Att kombinera Python med Geometry Nodes är ett kraftfullt sätt att skapa
-# verktyg på.
+# Combining Python with Geometry Nodes is a powerful way to create
+# tools.
 
 
-# Referenser
+# References
 # https://docs.blender.org/api/current/bpy.types.Modifier.html
 # https://docs.blender.org/api/current/bpy.types.NodesModifier.html

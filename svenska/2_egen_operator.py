@@ -14,6 +14,8 @@
 # - Köras från hotkeys
 
 
+# Såhär skapar vi en enkel operator
+
 # Lägg till följande kod i kodblocket nedan, tryck sedan Run Script (play-knappen högst upp ▲)
 
 """ Ignorera denna rad
@@ -42,7 +44,7 @@ Ignorera denna rad """
 # ——————————————————————————————————————————————————————————————————————
 
 # LÄGG TILL KODEN NEDANFÖR
-# vvvvvvvvvvvvvvvvvvv
+# vvvvvvvvvvvvvvvvvvvv
 
 
 
@@ -58,6 +60,14 @@ Ignorera denna rad """
 
 # Inuti execute-metoden körs den huvudsakliga koden av operatorn.
 
+# 'context' ger oss tillgång till operatorns kontextvariabler som
+
+# - context.object    # Det aktiva objektet
+# - context.active_object     # Det aktiva objektet (sålänge det är synligt i scenen)
+# - context.selected_objects  # De markerade objekten
+# - context.material  # Det aktiva material
+
+
 # Dess 'bl_idname' består av en kategori och operatorns namn.
 # Några vanliga kategorier inkluderar wm, object, mesh och view3d.
 # wm = Window Manager
@@ -66,7 +76,7 @@ Ignorera denna rad """
 # I Blender måste vi registrera klasser som definierar operators, paneler, 
 # menyer eller property groups.
 # Andra klasser, som bara innehåller hjälpfunktioner exempelvis, ska inte registreras.
-# Tumregeln kan man säga är- Kommer klassen synas eller gå att interagera med? Registrera.
+# Tumregeln kan man säga är: Kommer klassen synas eller gå att interagera med? Registrera.
 
 # För att ta reda på vilka möjliga menyer som finns kan vi använda oss 
 # av denna hjälpfunktion
@@ -84,3 +94,4 @@ print_all_menu_names()
 
 # Referenser
 # https://docs.blender.org/api/current/bpy.types.Operator.html
+# https://docs.blender.org/api/current/bpy.context.html
