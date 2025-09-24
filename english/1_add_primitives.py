@@ -1,5 +1,5 @@
 # ——————————————————————————————————————————————————————————————————————
-# Activity 1: Create primitives
+# Activity 1: Add primitives
 # ——————————————————————————————————————————————————————————————————————
 
 # Blender is largely controlled by operators - small programs that perform 
